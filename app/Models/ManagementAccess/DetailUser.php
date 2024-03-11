@@ -21,6 +21,7 @@ class DetailUser extends Model
         'updated_at',
     ];
 
+    //declare fillable
     protected $fillable = [
         'user_id',
         'type_user_id',

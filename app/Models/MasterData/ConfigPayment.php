@@ -21,6 +21,7 @@ class ConfigPayment extends Model
         'updated_at',
     ];
 
+    //declare fillable
     protected $fillable = [
         'fee',
         'ppn',

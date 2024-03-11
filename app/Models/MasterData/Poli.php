@@ -21,6 +21,7 @@ class Poli extends Model
         'updated_at',
     ];
 
+    //declare fillable
     protected $fillable = [
         'name',
         'price',

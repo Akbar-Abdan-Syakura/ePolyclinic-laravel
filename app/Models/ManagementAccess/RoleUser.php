@@ -21,6 +21,7 @@ class RoleUser extends Model
         'updated_at',
     ];
 
+    //declare fillable
     protected $fillable = [
         'role_id',
         'user_id',

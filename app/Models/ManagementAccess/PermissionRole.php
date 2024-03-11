@@ -21,6 +21,7 @@ class PermissionRole extends Model
         'updated_at',
     ];
 
+    //declare fillable
     protected $fillable = [
         'permission_id',
         'role_id',

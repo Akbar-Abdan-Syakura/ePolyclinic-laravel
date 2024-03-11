@@ -21,6 +21,7 @@ class Role extends Model
         'updated_at',
     ];
 
+    //declare fillable
     protected $fillable = [
         'title',
         'deleted_at',

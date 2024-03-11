@@ -21,6 +21,7 @@ class Consultation extends Model
         'updated_at',
     ];
 
+    //declare fillable
     protected $fillable = [
         'name',
         'deleted_at',

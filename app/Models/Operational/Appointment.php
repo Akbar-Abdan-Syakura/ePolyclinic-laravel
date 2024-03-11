@@ -21,6 +21,7 @@ class Appointment extends Model
         'updated_at',
     ];
 
+    //declare fillable
     protected $fillable = [
         'doctor_id',
         'user_id',
