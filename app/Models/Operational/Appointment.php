@@ -55,4 +55,11 @@ class Appointment extends Model
         // 3 parameter (path model, field foreign key, field primary key from table/model hasMany/hasOne)
         return $this->belongsTo('App\Models\MasterData\Consultation.php', 'consultation_id', 'id');
     }
+
+    // one to many
+    public function user()
+    {
+        // 3 parameter (path model, field foreign key, field primary key from table/model hasMany/hasOne)
+        return $this->belongsTo('app\Models\User.php', 'user_id', 'id');
+    }
 }
