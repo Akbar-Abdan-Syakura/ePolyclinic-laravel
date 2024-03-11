@@ -35,4 +35,11 @@ class Transaction extends Model
         'created_at',
         'updated_at',
     ];
+
+    // one to one
+    public function appointment()
+    {
+        // 3 parameter (path model, field foreign key, field primary key from table/model hasMany/hasOne)
+        return $this->belongsTo('App\Models\Operational\Appointment.php', 'appointment_id', 'id');
+    }
 }

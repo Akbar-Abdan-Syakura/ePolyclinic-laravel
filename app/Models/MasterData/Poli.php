@@ -29,4 +29,11 @@ class Poli extends Model
         'created_at',
         'updated_at',
     ];
+
+    // one to many
+    public function doctor()
+    {
+        // 2 parameter (path model, field foreign key)
+        return $this->hasMany('App\Models\Operational\Doctor.php', 'poli_id');
+    }
 }
