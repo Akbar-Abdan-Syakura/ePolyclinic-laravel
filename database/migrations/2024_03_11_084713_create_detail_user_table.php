@@ -20,7 +20,7 @@ class CreateDetailUserTable extends Migration
             $table->foreignId('type_user_id')->nullable()
                 ->index('fk_detail_user_to_type_user');
             $table->string('nik')->unique();
-            $table->string('bpjs')->unique();
+            $table->string('bpjs')->nullable();
             $table->string('contact')->nullable();
             $table->longText('address')->nullable();
             $table->longText('photo')->nullable();
