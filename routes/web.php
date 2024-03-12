@@ -2,10 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
+// backend controller
 use App\Http\Controllers\Frontsite\AppointmentController;
 use App\Http\Controllers\Frontsite\LandingController;
 use App\Http\Controllers\Frontsite\PaymentController;
-use App\Models\ManagementAccess\Role;
+
+// frontend controller
+use App\Http\Controllers\Backsite\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +37,8 @@ Route::group(
 Route::group(
     ['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['auth:sanctum', 'verified']],
     function () {
-        return view('dashboard');
+
+        Route::resource('dashboard', DashboardController::class);
     }
 );
 

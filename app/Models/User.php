@@ -22,9 +22,9 @@ class User extends Authenticatable
     use SoftDeletes;
 
     protected $date = [
-        'deleted_at',
         'created_at',
         'updated_at',
+        'deleted_at',
         'email_verified_at',
     ];
 
