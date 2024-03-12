@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Login')
+@section('title', 'Sign In')
 
 @section('content')
 <div class="min-h-screen">
@@ -42,7 +42,7 @@
                         <label class="block">
                             <input for="password" type="password" id="password" name="password"
                                 class="block w-full rounded-full py-4 text-[#1E2B4F] font-medium placeholder:text-[#AFAEC3] placeholder:font-normal px-7 border border-[#d4d4d4] focus:outline-none focus:border-[#DA1B4F]"
-                                placeholder="Password" />
+                                placeholder="Password" required autocomplete="current-password" />
                             @if ($errors->has('password'))
                             <p class="text-red-500 mb-3 text-small">{{ $errors->first('password') }}</p>
                             @endif
