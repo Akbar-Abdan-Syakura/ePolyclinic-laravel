@@ -21,15 +21,20 @@ use App\Models\ManagementAccess\Role;
 Route::resource('/', LandingController::class);
 
 Route::group(
-    ['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['auth:sanctum', 'verified']],
+    ['middleware' => ['auth:sanctum', 'verified']],
     function () {
-        // return view('dashboard');
-
         // appointment page frontsite
         Route::resource('appointment', AppointmentController::class);
 
         // payment page frontsite
         Route::resource('payment', PaymentController::class);
+    }
+);
+
+Route::group(
+    ['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['auth:sanctum', 'verified']],
+    function () {
+        return view('dashboard');
     }
 );
 
