@@ -1,14 +1,25 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 
-// backend controller
+// Frontend Controller
 use App\Http\Controllers\Frontsite\AppointmentController;
 use App\Http\Controllers\Frontsite\LandingController;
 use App\Http\Controllers\Frontsite\PaymentController;
 
-// frontend controller
+// Backend Controller
 use App\Http\Controllers\Backsite\DashboardController;
+use App\Http\Controllers\Backsite\PermissionController;
+use App\Http\Controllers\Backsite\PoliController;
+use App\Http\Controllers\Backsite\RoleController;
+use App\Http\Controllers\Backsite\TypeUserController;
+use App\Http\Controllers\Backsite\UserController;
+use App\Http\Controllers\Backsite\ConfigPaymentController;
+use App\Http\Controllers\Backsite\ConsultationController;
+use App\Http\Controllers\Backsite\DoctorController;
+use App\Http\Controllers\Backsite\ReportAppointmentController;
+use App\Http\Controllers\Backsite\ReportTransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +50,22 @@ Route::group(
     function () {
 
         Route::resource('dashboard', DashboardController::class);
+
+        // Management access route
+        Route::resource('permission', PermissionController::class);
+        Route::resource('role', RoleController::class);
+        Route::resource('user-type', TypeUserController::class);
+        Route::resource('user', UserController::class);
+
+        // Master data route
+        Route::resource('consultation', ConsultationController::class);
+        Route::resource('poli-services-data', PoliController::class);
+        Route::resource('cfg-payment', ConfigPaymentController::class);
+
+        // Operational route route
+        Route::resource('doctor', DoctorController::class);
+        Route::resource('appointment-data', ReportAppointmentController::class);
+        Route::resource('transaction-data', ReportTransactionController::class);
     }
 );
 
