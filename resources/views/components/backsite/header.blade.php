@@ -29,7 +29,7 @@
                 </ul>
 
                 <ul class="nav navbar-nav float-right">
-                    <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#"
+                    {{-- <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#"
                             data-toggle="dropdown"><i class="ficon ft-bell"></i><span
                                 class="badge badge-pill badge-danger badge-up badge-glow">5</span></a>
                         <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
@@ -99,7 +99,7 @@
                             <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center"
                                     href="javascript:void(0)">Read all notifications</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
 
                     <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link"
                             href="#" data-toggle="dropdown"><span class="mr-1 user-name text-bold-700">
