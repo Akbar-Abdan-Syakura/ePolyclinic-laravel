@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 
 // Frontend Controller
@@ -10,6 +9,7 @@ use App\Http\Controllers\Frontsite\PaymentController;
 
 // Backend Controller
 use App\Http\Controllers\Backsite\DashboardController;
+use App\Http\Controllers\Backsite\ClinicPatientController;
 use App\Http\Controllers\Backsite\PermissionController;
 use App\Http\Controllers\Backsite\PoliController;
 use App\Http\Controllers\Backsite\RoleController;
@@ -64,8 +64,9 @@ Route::group(
 
         // Operational route route
         Route::resource('doctor', DoctorController::class);
-        Route::resource('appointment-data', ReportAppointmentController::class);
-        Route::resource('transaction-data', ReportTransactionController::class);
+        Route::resource('appointment', ReportAppointmentController::class);
+        Route::resource('transaction', ReportTransactionController::class);
+        Route::resource('clinic-patient', ClinicPatientController::class);
     }
 );
 
