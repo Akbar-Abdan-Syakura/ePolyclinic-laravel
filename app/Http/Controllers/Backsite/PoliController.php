@@ -40,7 +40,8 @@ class PoliController extends Controller
      */
     public function index()
     {
-        $poli = Poli::orderBy('create_at', 'desc')->get();
+        // for table grid
+        $poli = Poli::orderBy('created_at', 'desc')->get();
 
         return view('pages.backsite.master-data.poli.index', compact('poli'));
     }

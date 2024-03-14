@@ -42,7 +42,7 @@ class DoctorController extends Controller
     public function index()
     {
         // for table grid
-        $doctor = Doctor::orderBy('create_at', 'desc')->get();
+        $doctor = Doctor::orderBy('created_at', 'desc')->get();
         // use select2 = asc from a to z
         $poli = Poli::orderBy('name', 'asc')->get();
 

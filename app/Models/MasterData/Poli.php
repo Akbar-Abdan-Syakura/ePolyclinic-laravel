@@ -16,18 +16,18 @@ class Poli extends Model
 
     // this field must type date yyyy-mm-dd hh:mm:ss
     protected $date = [
-        'deleted_at',
         'created_at',
         'updated_at',
+        'deleted_at',
     ];
 
     //declare fillable
     protected $fillable = [
         'name',
         'price',
-        'deleted_at',
         'created_at',
         'updated_at',
+        'deleted_at',
     ];
 
     // one to many

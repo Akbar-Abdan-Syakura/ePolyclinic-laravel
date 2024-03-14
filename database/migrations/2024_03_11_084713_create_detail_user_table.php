@@ -19,8 +19,8 @@ class CreateDetailUserTable extends Migration
                 ->index('fk_detail_user_to_users');
             $table->foreignId('type_user_id')->nullable()
                 ->index('fk_detail_user_to_type_user');
-            $table->string('nik')->unique();
-            $table->string('bpjs')->nullable();
+            $table->string('nik')->nullable()->unique();
+            $table->string('bpjs')->nullable()->unique();
             $table->string('contact')->nullable();
             $table->longText('address')->nullable();
             $table->longText('photo')->nullable();
