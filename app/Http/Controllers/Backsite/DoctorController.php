@@ -13,10 +13,12 @@ use App\Http\Requests\Doctor\UpdateDoctorRequest;
 use App\Http\Requests\Doctor\StoreDoctorRequest;
 
 // simlple use here
-// use Gate;
+use Gate;
 use Auth;
+use File;
 
 // model here
+use App\Models\User;
 use App\Models\Operational\Doctor;
 use App\Models\MasterData\Poli;
 
@@ -41,6 +43,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('doctor_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         // for table grid
         $doctor = Doctor::orderBy('created_at', 'desc')->get();
         // use select2 = asc from a to z
@@ -85,6 +89,8 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
+        abort_if(Gate::denies('doctor_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         return view('pages.backsite.operational.doctor.show', compact('doctor'));
     }
 
@@ -96,6 +102,8 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
+        abort_if(Gate::denies('doctor_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         // use select2 = asc from a to z
         $poli = Poli::orderBy('name', 'asc')->get();
 
@@ -129,6 +137,8 @@ class DoctorController extends Controller
      */
     public function destroy(Doctor $doctor)
     {
+        abort_if(Gate::denies('doctor_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $doctor->forceDelete();
 
         alert()->success('Success Message', 'Successfully deleted doctor');

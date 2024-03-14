@@ -2,6 +2,7 @@
 
 namespace App\Models\ManagementAccess;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -41,5 +42,18 @@ class Role extends Model
     {
         // 2 parameter (path model, field foreign key)
         return $this->hasMany('app\Models\ManagementAccess\PermissionRole.php', 'role_id');
+    }
+
+
+    // many to many
+    public function user()
+    {
+        // 2 parameter (path model, field foreign key)
+        return $this->belongsToMany(User::class);
+    }
+
+    public function permission()
+    {
+        return $this->belongsToMany('App\Models\ManagementAccess\Permission');
     }
 }

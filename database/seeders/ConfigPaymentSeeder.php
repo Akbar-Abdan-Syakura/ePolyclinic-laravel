@@ -20,7 +20,7 @@ class ConfigPaymentSeeder extends Seeder
         $config_payment = [
             [
                 'fee' => '50000',
-                'ppn' => '11', // ppn is percentage
+                'ppn' => '10', // ppn is percentage
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],

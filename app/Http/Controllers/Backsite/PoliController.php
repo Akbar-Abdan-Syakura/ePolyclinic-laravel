@@ -13,7 +13,7 @@ use App\Http\Requests\Poli\UpdatePoliRequest;
 use App\Http\Requests\Poli\StorePoliRequest;
 
 // simlple use here
-// use Gate;
+use Gate;
 use Auth;
 
 // model here
@@ -40,6 +40,8 @@ class PoliController extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('poli_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         // for table grid
         $poli = Poli::orderBy('created_at', 'desc')->get();
 
@@ -82,6 +84,8 @@ class PoliController extends Controller
      */
     public function show(Poli $poli)
     {
+        abort_if(Gate::denies('poli_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         return view('pages.backsite.master-data.poli.show', compact('poli'));
     }
 
@@ -93,6 +97,8 @@ class PoliController extends Controller
      */
     public function edit(Poli $poli)
     {
+        abort_if(Gate::denies('poli_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         return view('pages.backsite.master-data.poli.edit', compact('poli'));
     }
 
@@ -123,6 +129,8 @@ class PoliController extends Controller
      */
     public function destroy(Poli $poli)
     {
+        abort_if(Gate::denies('poli_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $poli->forceDelete();
 
         alert()->success('Success Message', 'Successfully deleted poli services');

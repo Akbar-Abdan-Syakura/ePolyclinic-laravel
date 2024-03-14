@@ -19,7 +19,7 @@ use App\Models\Operational\Doctor;
 use App\Models\User;
 use App\Models\ManagementAccess\DetailUser;
 use App\Models\MasterData\Consultation;
-use App\Models\MasterData\Specialist;
+use App\Models\MasterData\Poli;
 use App\Models\MasterData\ConfigPayment;
 
 // thirdparty package
@@ -43,6 +43,8 @@ class ReportTransactionController extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('transaction_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $transaction = Transaction::orderBy('created_at', 'desc')->get();
 
         return view('pages.backsite.operational.transaction.index', compact('transaction'));

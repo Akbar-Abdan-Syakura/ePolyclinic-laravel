@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 // use request here
-use App\Http\Requests\Doctor\UpdateConfigPaymentRequest;
+use App\Http\Requests\ConfigPayment\UpdateConfigPaymentRequest;
 
 // simlple use here
-// use Gate;
+use Gate;
 use Auth;
 
 // model here
@@ -40,6 +40,8 @@ class ConfigPaymentController extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('cfg-payment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $cfg_payment = ConfigPayment::all();
 
         return view('pages.backsite.master-data.config-payment.index', compact('cfg_payment'));
@@ -85,6 +87,8 @@ class ConfigPaymentController extends Controller
      */
     public function edit(ConfigPayment $cfg_payment)
     {
+        abort_if(Gate::denies('cfg-payment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         return view('pages.backsite.master-data.config-payment.edit', compact('cfg_payment'));
     }
 

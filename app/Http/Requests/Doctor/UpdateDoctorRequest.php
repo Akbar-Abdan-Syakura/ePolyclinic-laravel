@@ -16,7 +16,8 @@ class UpdateDoctorRequest extends FormRequest
      */
     public function authorize()
     {
-        // create middleware from kernel at here
+        abort_if(Gate::denies('doctor_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         return true;
     }
 
@@ -28,6 +29,9 @@ class UpdateDoctorRequest extends FormRequest
     public function rules()
     {
         return [
+            // 'user_id' => [
+            //     'required', 'integer',
+            // ],
             'poli_id' => [
                 'required', 'integer',
             ],

@@ -19,7 +19,8 @@ class UpdateUserRequest extends FormRequest
      */
     public function authorize()
     {
-        // create middleware from kernel at here
+        abort_if(Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         return true;
     }
 
@@ -36,7 +37,6 @@ class UpdateUserRequest extends FormRequest
             ],
             'email' => [
                 'required', 'max:255', 'email', Rule::unique('users')->ignore($this->user),
-                // Rule unique only work for other record id
             ],
             'password' => [
                 'min:8', 'max:255', 'string', 'mixedCase',
