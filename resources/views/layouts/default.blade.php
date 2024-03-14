@@ -3,12 +3,10 @@
 
 <head>
     @include('includes.frontsite.meta')
-    <title>@yield('title') | ePolyclinic</title>
-
-    @stack('before-style')
-    @include('includes.frontsite.style')
-    @stack('after-style')
-</head>
+    <title>@yield('title') | ePoliclinic</title>
+    <link rel="shortcut icon" type="image/x-icon"
+        href="{{ asset('/assets/backsite/app-assets/images/ico/icon-poli.png ') }}">
+    <link @stack('before-style') @include('includes.frontsite.style') @stack('after-style') </head>
 
 <body>
     @include('sweetalert::alert')

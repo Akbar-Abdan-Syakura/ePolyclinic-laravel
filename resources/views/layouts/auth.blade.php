@@ -3,7 +3,7 @@
 
 <head>
     @include('includes.auth.meta')
-    <title>@yield('title') | ePolyclinic</title>
+    <title>@yield('title') | ePoliclinic</title>
 
     @stack('before-style')
     @include('includes.auth.style')

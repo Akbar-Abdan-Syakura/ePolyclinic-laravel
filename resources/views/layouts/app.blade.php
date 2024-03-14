@@ -3,11 +3,11 @@
 
 <head>
     @include('includes.backsite.meta')
-    <title>@yield('title') | ePolyclinic Backoffice</title>
+    <title>@yield('title') | ePoliclinic Backoffice</title>
 
-    <link rel="apple-touch-icon" href="{{ asset('/assets/backsite/app-assets/images/ico/apple-icon-120.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('/assets/backsite/app-assets/images/ico/icon-poli.png') }}">
     <link rel="shortcut icon" type="image/x-icon"
-        href="{{ asset('/assets/backsite/app-assets/images/ico/favicon.ico ') }}">
+        href="{{ asset('/assets/backsite/app-assets/images/ico/icon-poli.png ') }}">
     <link
         href="{{ url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700') }}"
         rel="stylesheet">

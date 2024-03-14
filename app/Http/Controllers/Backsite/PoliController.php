@@ -65,6 +65,9 @@ class PoliController extends Controller
 
         // store to database
         $poli = Poli::create($data);
+
+        alert()->success('Success Message', 'Successfully added new poli services');
+        return redirect()->route('backsite.poli-services.index');
     }
 
     /**
@@ -73,9 +76,9 @@ class PoliController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Poli $poli)
     {
-        return abort('404');
+        return view('pages.backsite.master-data.poli.show', compact('poli'));
     }
 
     /**
@@ -84,9 +87,9 @@ class PoliController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Poli $poli)
     {
-        return abort('404');
+        return view('pages.backsite.master-data.poli.edit', compact('poli'));
     }
 
     /**
@@ -96,9 +99,16 @@ class PoliController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePoliRequest $request, Poli $poli)
     {
-        return abort('404');
+        // get all data request from frontsite
+        $data = $request->all();
+
+        // update to database
+        $poli->update($data);
+
+        alert()->success('Success Message', 'Successfully updated poli services');
+        return redirect()->route('backsite.poli-services.index');
     }
 
     /**
@@ -107,8 +117,11 @@ class PoliController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Poli $poli)
     {
-        return abort('404');
+        $poli->delete();
+
+        alert()->success('Success Message', 'Successfully deleted poli services');
+        return back();
     }
 }
