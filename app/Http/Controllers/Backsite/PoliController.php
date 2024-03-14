@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+
+// use library here
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\Response;
 
 // use request here
 use App\Http\Requests\Poli\UpdatePoliRequest;
@@ -119,7 +122,7 @@ class PoliController extends Controller
      */
     public function destroy(Poli $poli)
     {
-        $poli->delete();
+        $poli->forceDelete();
 
         alert()->success('Success Message', 'Successfully deleted poli services');
         return back();
