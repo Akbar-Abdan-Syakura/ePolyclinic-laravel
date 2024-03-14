@@ -41,7 +41,11 @@ class ClinicPatientController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.operational.clinic-patient.index');
+        $clinic_patient = User::whereHas('detail_user', function ($query) {
+            return $query->where('type_user_id', 3 and 'type_user_id', 4); // only load user type patient or id 3 and 4 in type-user table
+        })->orderBy('created_at', 'desc')->get();
+
+        return view('pages.backsite.operational.clinic-patient.index', compact('clinic_patient'));
     }
 
     /**
