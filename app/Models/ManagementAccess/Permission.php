@@ -29,15 +29,15 @@ class Permission extends Model
         'updated_at',
     ];
 
+    public function role()
+    {
+        return $this->belongsToMany('App\Models\ManagementAccess\Role');
+    }
+
     // one to many
     public function permission_role()
     {
         // 2 parameter (path model, field foreign key)
         return $this->hasMany('app\Models\ManagementAccess\PermissionRole.php', 'permission_id');
-    }
-
-    public function role()
-    {
-        return $this->belongsToMany('App\Models\ManagementAccess\Role');
     }
 }

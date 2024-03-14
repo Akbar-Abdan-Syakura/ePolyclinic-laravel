@@ -59,7 +59,7 @@ Route::group(
 
         // Master data route
         Route::resource('consultation', ConsultationController::class);
-        Route::resource('poli-services', PoliController::class);
+        Route::resource('poli', PoliController::class);
         Route::resource('cfg-payment', ConfigPaymentController::class);
 
         // Operational route route

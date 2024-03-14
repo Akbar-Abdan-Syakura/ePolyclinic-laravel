@@ -49,8 +49,11 @@ class DoctorController extends Controller
         $doctor = Doctor::orderBy('created_at', 'desc')->get();
         // use select2 = asc from a to z
         $poli = Poli::orderBy('name', 'asc')->get();
+        $user = User::whereHas('detail_user', function ($query) {
+            $query->where('type_user_id', 2);
+        })->orderBy('name', 'asc')->get();
 
-        return view('pages.backsite.operational.doctor.index', compact('doctor', 'poli'));
+        return view('pages.backsite.operational.doctor.index', compact('doctor', 'poli', 'user'));
     }
 
     /**

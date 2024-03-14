@@ -56,14 +56,14 @@
 
             {{-- @can('master_data_access') --}}
             <li class=" nav-item"><a href="#"><i
-                        class="{{ request()->is('backsite/poli-services') || request()->is('backsite/poli-services/*') || request()->is('backsite/*/poli-services') || request()->is('backsite/*/poli-services/*') || request()->is('backsite/consultation') || request()->is('backsite/consultation/*') || request()->is('backsite/*/consultation') || request()->is('backsite/*/consultation/*') || request()->is('backsite/cfg-payment') || request()->is('backsite/cfg-payment/*') || request()->is('backsite/*/cfg-payment') || request()->is('backsite/*/cfg-payment/*') ? 'bx bx-customize bx-flashing' : 'bx bx-customize' }}"></i><span
+                        class="{{ request()->is('backsite/poli') || request()->is('backsite/poli/*') || request()->is('backsite/*/poli') || request()->is('backsite/*/poli/*') || request()->is('backsite/consultation') || request()->is('backsite/consultation/*') || request()->is('backsite/*/consultation') || request()->is('backsite/*/consultation/*') || request()->is('backsite/cfg-payment') || request()->is('backsite/cfg-payment/*') || request()->is('backsite/*/cfg-payment') || request()->is('backsite/*/cfg-payment/*') ? 'bx bx-customize bx-flashing' : 'bx bx-customize' }}"></i><span
                         class="menu-title" data-i18n="Master Data">Master Data</span></a>
                 <ul class="menu-content">
 
                     {{-- @can('poli_access') --}}
                     <li
-                        class="{{ request()->is('backsite/poli-services') || request()->is('backsite/poli-services/*') || request()->is('backsite/*/poli-services') || request()->is('backsite/*/poli-services/*') ? 'active' : '' }} ">
-                        <a class="menu-item" href="{{ route('backsite.poli-services.index') }}">
+                        class="{{ request()->is('backsite/poli') || request()->is('backsite/poli/*') || request()->is('backsite/*/poli') || request()->is('backsite/*/poli/*') ? 'active' : '' }} ">
+                        <a class="menu-item" href="{{ route('backsite.poli.index') }}">
                             <i></i><span>Poli Services</span>
                         </a>
                     </li>

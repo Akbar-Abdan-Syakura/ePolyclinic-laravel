@@ -16,7 +16,7 @@ class StorePoliRequest extends FormRequest
      */
     public function authorize()
     {
-        abort_if(Gate::denies('specialist_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('poli_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
     }

@@ -73,7 +73,7 @@ class PoliController extends Controller
         $poli = Poli::create($data);
 
         alert()->success('Success Message', 'Successfully added new poli services');
-        return redirect()->route('backsite.poli-services.index');
+        return redirect()->route('backsite.poli.index');
     }
 
     /**
@@ -118,7 +118,7 @@ class PoliController extends Controller
         $poli->update($data);
 
         alert()->success('Success Message', 'Successfully updated poli services');
-        return redirect()->route('backsite.poli-services.index');
+        return redirect()->route('backsite.poli.index');
     }
 
     /**

@@ -172,7 +172,7 @@ class PermissionSeeder extends Seeder
             ],
             // cfg payment
             [
-                'title'      => 'cfg-payment_access',
+                'title'      => 'cfg_payment_access',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],

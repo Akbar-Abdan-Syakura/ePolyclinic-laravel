@@ -30,6 +30,16 @@ class Role extends Model
         'updated_at',
     ];
 
+    public function user()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
+
+    public function permission()
+    {
+        return $this->belongsToMany('App\Models\ManagementAccess\Permission');
+    }
+
     // one to many
     public function role_user()
     {
@@ -42,18 +52,5 @@ class Role extends Model
     {
         // 2 parameter (path model, field foreign key)
         return $this->hasMany('app\Models\ManagementAccess\PermissionRole.php', 'role_id');
-    }
-
-
-    // many to many
-    public function user()
-    {
-        // 2 parameter (path model, field foreign key)
-        return $this->belongsToMany(User::class);
-    }
-
-    public function permission()
-    {
-        return $this->belongsToMany('App\Models\ManagementAccess\Permission');
     }
 }
