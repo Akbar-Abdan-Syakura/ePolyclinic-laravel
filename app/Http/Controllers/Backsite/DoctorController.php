@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Backsite;
 
-use App\Actions\Jetstream\UpdateTeamName;
 use App\Http\Controllers\Controller;
 
 // use library here
@@ -74,7 +73,7 @@ class DoctorController extends Controller
         // store to database
         $doctor = Doctor::create($data);
 
-        alert()->success('Success Message', 'Successfully added new doctor services');
+        alert()->success('Success Message', 'Successfully added new doctor');
         return redirect()->route('backsite.doctor.index');
     }
 
@@ -118,7 +117,7 @@ class DoctorController extends Controller
         // update to database
         $doctor->update($data);
 
-        alert()->success('Success Message', 'Successfully updated doctor services');
+        alert()->success('Success Message', 'Successfully updated doctor');
         return redirect()->route('backsite.doctor.index');
     }
 
@@ -132,7 +131,7 @@ class DoctorController extends Controller
     {
         $doctor->forceDelete();
 
-        alert()->success('Success Message', 'Successfully deleted doctor services');
+        alert()->success('Success Message', 'Successfully deleted doctor');
         return back();
     }
 }
