@@ -17,13 +17,13 @@ class DatabaseSeeder extends Seeder
             TypeUserSeeder::class,
             ConsultationSeeder::class,
             ConfigPaymentSeeder::class,
-            SpecialistSeeder::class,
+            PoliSeeder::class,
             UserSeeder::class,
             DetailUserSeeder::class,
             PermissionSeeder::class,
             RoleSeeder::class,
-            // PermissionRoleSeeder::class,
-            // RoleUserSeeder::class,
+            PermissionRoleSeeder::class,
+            RoleUserSeeder::class,
         ]);
     }
 }
