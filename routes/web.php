@@ -54,7 +54,7 @@ Route::group(
         // Management access route
         Route::resource('permission', PermissionController::class);
         Route::resource('role', RoleController::class);
-        Route::resource('user-type', TypeUserController::class);
+        Route::resource('type-user', TypeUserController::class);
         Route::resource('user', UserController::class);
 
         // Master data route

@@ -11,6 +11,8 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
+
     @include('components.frontsite.header')
     @yield('content')
     @include('components.frontsite.footer')
