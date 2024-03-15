@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+// use model class that have relation with this model
+use App\Models\Operational\Doctor;
+
 class Poli extends Model
 {
     // use HasFactory;
@@ -34,6 +37,6 @@ class Poli extends Model
     public function doctor()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasMany('App\Models\Operational\Doctor.php', 'poli_id');
+        return $this->hasMany(Doctor::class, 'poli_id');
     }
 }

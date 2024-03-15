@@ -2,10 +2,12 @@
 
 namespace App\Models\MasterData;
 
-use App\Models\ManagementAccess\DetailUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+
+// use model: for relation
+use App\Models\ManagementAccess\DetailUser;
 
 class TypeUser extends Model
 {
@@ -34,6 +36,6 @@ class TypeUser extends Model
     public function detail_user()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasMany('App\Models\MasterData\TypeUser.php', 'type_user_id');
+        return $this->hasMany(DetailUser::class, 'type_user_id');
     }
 }

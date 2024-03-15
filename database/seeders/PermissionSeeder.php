@@ -170,19 +170,19 @@ class PermissionSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
-            // cfg payment
+            // config payment
             [
-                'title'      => 'cfg_payment_access',
+                'title'      => 'config_payment_access',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'title'      => 'cfg_payment_table',
+                'title'      => 'config_payment_table',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'title'      => 'cfg_payment_edit',
+                'title'      => 'config_payment_edit',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],

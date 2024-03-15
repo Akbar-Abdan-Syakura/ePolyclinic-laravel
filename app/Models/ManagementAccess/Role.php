@@ -2,10 +2,16 @@
 
 namespace App\Models\ManagementAccess;
 
-use App\Models\User;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+// use model class that have relation with this model
+use App\Models\User;
+use App\Models\ManagementAccess\Permission;
+use App\Models\ManagementAccess\PermissionRole;
+use App\Models\ManagementAccess\RoleUser;
+
 
 class Role extends Model
 {
@@ -32,25 +38,27 @@ class Role extends Model
 
     public function user()
     {
-        return $this->belongsToMany('App\Models\User');
+        // 1 parameter (only path model)
+        return $this->belongsToMany(User::class);
     }
 
     public function permission()
     {
-        return $this->belongsToMany('App\Models\ManagementAccess\Permission');
+        // 1 parameter (only path model)
+        return $this->belongsToMany(Permission::class);
     }
 
     // one to many
     public function role_user()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasMany('App\Models\ManagementAccess\RoleUser.php', 'role_id');
+        return $this->hasMany(RoleUser::class, 'role_id');
     }
 
     // one to many
     public function permission_role()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasMany('app\Models\ManagementAccess\PermissionRole.php', 'role_id');
+        return $this->hasMany(PermissionRole::class, 'role_id');
     }
 }

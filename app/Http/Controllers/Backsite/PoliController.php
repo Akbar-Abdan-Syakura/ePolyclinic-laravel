@@ -69,6 +69,10 @@ class PoliController extends Controller
         // get all data from frontsite
         $data = $request->all();
 
+        // re format before push to table
+        $data['price'] = str_replace(',', '', $data['price']);
+        $data['price'] = str_replace('IDR ', '', $data['price']);
+
         // store to database
         $poli = Poli::create($data);
 
@@ -113,6 +117,10 @@ class PoliController extends Controller
     {
         // get all data request from frontsite
         $data = $request->all();
+
+        // re format before push to table
+        $data['price'] = str_replace(',', '', $data['price']);
+        $data['price'] = str_replace('IDR ', '', $data['price']);
 
         // update to database
         $poli->update($data);

@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+// use model class that have relation with this model
+use App\Models\ManagementAccess\PermissionRole;
+use App\Models\ManagementAccess\Role;
+
 class Permission extends Model
 {
     // use HasFactory;
@@ -31,13 +35,13 @@ class Permission extends Model
 
     public function role()
     {
-        return $this->belongsToMany('App\Models\ManagementAccess\Role');
+        return $this->belongsToMany(Role::class);
     }
 
     // one to many
     public function permission_role()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasMany('app\Models\ManagementAccess\PermissionRole.php', 'permission_id');
+        return $this->hasMany(PermissionRole::class, 'permission_id');
     }
 }

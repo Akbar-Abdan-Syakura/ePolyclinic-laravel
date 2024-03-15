@@ -54,19 +54,19 @@ Route::group(
         // Management access route
         Route::resource('permission', PermissionController::class);
         Route::resource('role', RoleController::class);
-        Route::resource('type-user', TypeUserController::class);
+        Route::resource('type_user', TypeUserController::class);
         Route::resource('user', UserController::class);
 
         // Master data route
         Route::resource('consultation', ConsultationController::class);
         Route::resource('poli', PoliController::class);
-        Route::resource('cfg-payment', ConfigPaymentController::class);
+        Route::resource('config_payment', ConfigPaymentController::class);
 
         // Operational route route
         Route::resource('doctor', DoctorController::class);
         Route::resource('appointment', ReportAppointmentController::class);
         Route::resource('transaction', ReportTransactionController::class);
-        Route::resource('clinic-patient', ClinicPatientController::class);
+        Route::resource('clinic_patient', ClinicPatientController::class);
     }
 );
 

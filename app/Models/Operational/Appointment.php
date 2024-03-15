@@ -2,9 +2,15 @@
 
 namespace App\Models\Operational;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+// use model class that have relation with this model
+use App\Models\User;
+use App\Models\Operational\Doctor;
+use App\Models\MasterData\Consultation;
+use App\Models\Operational\Transaction;
 
 class Appointment extends Model
 {
@@ -16,9 +22,9 @@ class Appointment extends Model
 
     // this field must type date yyyy-mm-dd hh:mm:ss
     protected $date = [
-        'deleted_at',
         'created_at',
         'updated_at',
+        'deleted_at',
     ];
 
     //declare fillable
@@ -39,27 +45,27 @@ class Appointment extends Model
     public function doctor()
     {
         // 3 parameter (path model, field foreign key, field primary key from table/model hasMany/hasOne)
-        return $this->belongsTo('App\Models\Operational\Doctor.php', 'doctor_id', 'id');
+        return $this->belongsTo(Doctor::class, 'doctor_id', 'id');
     }
 
     // one to one
     public function transaction()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasOne('App\Models\Operational\Transaction.php', 'appointment_id');
+        return $this->hasOne(Transaction::class, 'appointment_id');
     }
 
     // one to many
     public function consultation()
     {
         // 3 parameter (path model, field foreign key, field primary key from table/model hasMany/hasOne)
-        return $this->belongsTo('App\Models\MasterData\Consultation.php', 'consultation_id', 'id');
+        return $this->belongsTo(Consultation::class, 'consultation_id', 'id');
     }
 
     // one to many
     public function user()
     {
         // 3 parameter (path model, field foreign key, field primary key from table/model hasMany/hasOne)
-        return $this->belongsTo('app\Models\User.php', 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

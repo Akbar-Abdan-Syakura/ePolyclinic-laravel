@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+// use model class that have relation with this model
+use App\Models\Operational\Appointment;
+
 class Consultation extends Model
 {
     // use HasFactory;
@@ -33,6 +36,6 @@ class Consultation extends Model
     public function appointment()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasMany('App\Models\Operational\Appointment.php', 'consultation_id');
+        return $this->hasMany(Appointment::class, 'consultation_id');
     }
 }

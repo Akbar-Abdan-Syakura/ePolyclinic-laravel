@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,6 +11,12 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
+
+// use model class that have relation with this model
+use App\Models\ManagementAccess\DetailUser;
+use App\Models\ManagementAccess\Role;
+use App\Models\ManagementAccess\RoleUser;
+use App\Models\Operational\Appointment;
 
 class User extends Authenticatable
 {
@@ -72,27 +79,27 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsToMany('App\Models\ManagementAccess\Role');
+        return $this->belongsToMany(Role::class);
     }
 
     // one to many
     public function appointment()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasMany('App\Models\Operational\Appointment.php', 'user_id');
+        return $this->hasMany(Appointment::class, 'user_id');
     }
 
     // one to one
     public function detail_user()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasOne('App\Models\ManagementAccess\DetailUser.php', 'user_id');
+        return $this->hasOne(DetailUser::class, 'user_id');
     }
 
     // one to many
     public function role_user()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasMany('App\Models\ManagementAccess\RoleUser.php', 'user_id');
+        return $this->hasMany(RoleUser::class, 'user_id');
     }
 }

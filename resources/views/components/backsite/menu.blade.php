@@ -15,7 +15,7 @@
 
             {{-- @can('management_access') --}}
             <li class=" nav-item"><a href="#"><i
-                        class="{{ request()->is('backsite/permission') || request()->is('backsite/permission/*') || request()->is('backsite/*/permission') || request()->is('backsite/*/permission/*') || request()->is('backsite/role') || request()->is('backsite/role/*') || request()->is('backsite/*/role') || request()->is('backsite/*/role/*') || request()->is('backsite/user') || request()->is('backsite/user/*') || request()->is('backsite/*/user') || request()->is('backsite/*/user/*') || request()->is('backsite/type-user') || request()->is('backsite/type-user/*') || request()->is('backsite/*/type-user') || request()->is('backsite/*/type-user/*') ? 'bx bx-group bx-flashing' : 'bx bx-group' }}"></i><span
+                        class="{{ request()->is('backsite/permission') || request()->is('backsite/permission/*') || request()->is('backsite/*/permission') || request()->is('backsite/*/permission/*') || request()->is('backsite/role') || request()->is('backsite/role/*') || request()->is('backsite/*/role') || request()->is('backsite/*/role/*') || request()->is('backsite/user') || request()->is('backsite/user/*') || request()->is('backsite/*/user') || request()->is('backsite/*/user/*') || request()->is('backsite/type_user') || request()->is('backsite/type_user/*') || request()->is('backsite/*/type_user') || request()->is('backsite/*/type_user/*') ? 'bx bx-group bx-flashing' : 'bx bx-group' }}"></i><span
                         class="menu-title" data-i18n="Management Access">Management Access</span></a>
                 <ul class="menu-content">
                     {{-- @can('permission_access') --}}
@@ -34,10 +34,10 @@
                         </a>
                     </li>
                     {{-- @endcan --}}
-                    {{-- @can('type-user_access') --}}
+                    {{-- @can('type_user_access') --}}
                     <li
-                        class="{{ request()->is('backsite/type-user') || request()->is('backsite/type-user/*') || request()->is('backsite/*/type-user') || request()->is('backsite/*/type-user/*') ? 'active' : '' }} ">
-                        <a class="menu-item" href="{{ route('backsite.type-user.index') }}">
+                        class="{{ request()->is('backsite/type_user') || request()->is('backsite/type_user/*') || request()->is('backsite/*/type_user') || request()->is('backsite/*/type_user/*') ? 'active' : '' }} ">
+                        <a class="menu-item" href="{{ route('backsite.type_user.index') }}">
                             <i></i><span>Type User</span>
                         </a>
                     </li>
@@ -56,7 +56,7 @@
 
             {{-- @can('master_data_access') --}}
             <li class=" nav-item"><a href="#"><i
-                        class="{{ request()->is('backsite/poli') || request()->is('backsite/poli/*') || request()->is('backsite/*/poli') || request()->is('backsite/*/poli/*') || request()->is('backsite/consultation') || request()->is('backsite/consultation/*') || request()->is('backsite/*/consultation') || request()->is('backsite/*/consultation/*') || request()->is('backsite/cfg-payment') || request()->is('backsite/cfg-payment/*') || request()->is('backsite/*/cfg-payment') || request()->is('backsite/*/cfg-payment/*') ? 'bx bx-customize bx-flashing' : 'bx bx-customize' }}"></i><span
+                        class="{{ request()->is('backsite/poli') || request()->is('backsite/poli/*') || request()->is('backsite/*/poli') || request()->is('backsite/*/poli/*') || request()->is('backsite/consultation') || request()->is('backsite/consultation/*') || request()->is('backsite/*/consultation') || request()->is('backsite/*/consultation/*') || request()->is('backsite/config_payment') || request()->is('backsite/config_payment/*') || request()->is('backsite/*/config_payment') || request()->is('backsite/*/config_payment/*') ? 'bx bx-customize bx-flashing' : 'bx bx-customize' }}"></i><span
                         class="menu-title" data-i18n="Master Data">Master Data</span></a>
                 <ul class="menu-content">
 
@@ -80,8 +80,8 @@
 
                     {{-- @can('config_payment_access') --}}
                     <li
-                        class="{{ request()->is('backsite/cfg-payment') || request()->is('backsite/cfg-payment/*') || request()->is('backsite/*/cfg-payment') || request()->is('backsite/*/cfg-payment/*') ? 'active' : '' }} ">
-                        <a class="menu-item" href="{{ route('backsite.cfg-payment.index') }}">
+                        class="{{ request()->is('backsite/config_payment') || request()->is('backsite/config_payment/*') || request()->is('backsite/*/config_payment') || request()->is('backsite/*/config_payment/*') ? 'active' : '' }} ">
+                        <a class="menu-item" href="{{ route('backsite.config_payment.index') }}">
                             <i></i><span>Config Payment</span>
                         </a>
                     </li>
@@ -93,7 +93,7 @@
 
             {{-- @can('operational_access') --}}
             <li class=" nav-item"><a href="#"><i
-                        class="{{ request()->is('backsite/doctor') || request()->is('backsite/doctor/*') || request()->is('backsite/*/doctor') || request()->is('backsite/*/doctor/*') || request()->is('backsite/clinic-patient') || request()->is('backsite/clinic-patient/*') || request()->is('backsite/*/clinic-patient') || request()->is('backsite/*/clinic-patient/*') || request()->is('backsite/appointment') || request()->is('backsite/appointment/*') || request()->is('backsite/*/appointment') || request()->is('backsite/*/appointment/*') || request()->is('backsite/transaction') || request()->is('backsite/transaction/*') || request()->is('backsite/*/transaction') || request()->is('backsite/*/transaction/*') ? 'bx bx-hive bx-flashing' : 'bx bx-hive' }}"></i><span
+                        class="{{ request()->is('backsite/doctor') || request()->is('backsite/doctor/*') || request()->is('backsite/*/doctor') || request()->is('backsite/*/doctor/*') || request()->is('backsite/clinic_patient') || request()->is('backsite/clinic_patient/*') || request()->is('backsite/*/clinic_patient') || request()->is('backsite/*/clinic_patient/*') || request()->is('backsite/appointment') || request()->is('backsite/appointment/*') || request()->is('backsite/*/appointment') || request()->is('backsite/*/appointment/*') || request()->is('backsite/transaction') || request()->is('backsite/transaction/*') || request()->is('backsite/*/transaction') || request()->is('backsite/*/transaction/*') ? 'bx bx-hive bx-flashing' : 'bx bx-hive' }}"></i><span
                         class="menu-title" data-i18n="Operational">Operational</span></a>
                 <ul class="menu-content">
 
@@ -108,8 +108,8 @@
 
                     {{-- @can('clinic_patient_access') --}}
                     <li
-                        class="{{ request()->is('backsite/clinic-patient') || request()->is('backsite/clinic-patient/*') || request()->is('backsite/*/clinic-patient') || request()->is('backsite/*/clinic-patient/*') ? 'active' : '' }} ">
-                        <a class="menu-item" href="{{ route('backsite.clinic-patient.index') }}">
+                        class="{{ request()->is('backsite/clinic_patient') || request()->is('backsite/clinic_patient/*') || request()->is('backsite/*/clinic_patient') || request()->is('backsite/*/clinic_patient/*') ? 'active' : '' }} ">
+                        <a class="menu-item" href="{{ route('backsite.clinic_patient.index') }}">
                             <i></i><span>Clinic Patient</span>
                         </a>
                     </li>

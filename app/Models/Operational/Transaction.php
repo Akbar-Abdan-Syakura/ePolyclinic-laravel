@@ -2,9 +2,12 @@
 
 namespace App\Models\Operational;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+// use model class that have relation with this model
+use App\Models\Operational\Appointment;
 
 
 class Transaction extends Model
@@ -40,6 +43,6 @@ class Transaction extends Model
     public function appointment()
     {
         // 3 parameter (path model, field foreign key, field primary key from table/model hasMany/hasOne)
-        return $this->belongsTo('App\Models\Operational\Appointment.php', 'appointment_id', 'id');
+        return $this->belongsTo(Appointment::class, 'appointment_id', 'id');
     }
 }
