@@ -45,27 +45,27 @@ class Appointment extends Model
     public function doctor()
     {
         // 3 parameter (path model, field foreign key, field primary key from table/model hasMany/hasOne)
-        return $this->belongsTo(Doctor::class, 'doctor_id', 'id');
+        return $this->belongsTo('App\Models\Operational\Doctor', 'doctor_id', 'id');
     }
 
     // one to one
     public function transaction()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasOne(Transaction::class, 'appointment_id');
+        return $this->hasOne('App\Models\Operational\Transaction', 'appointment_id');
     }
 
     // one to many
     public function consultation()
     {
         // 3 parameter (path model, field foreign key, field primary key from table/model hasMany/hasOne)
-        return $this->belongsTo(Consultation::class, 'consultation_id', 'id');
+        return $this->belongsTo('App\Models\MasterData\Consultation', 'consultation_id', 'id');
     }
 
     // one to many
     public function user()
     {
         // 3 parameter (path model, field foreign key, field primary key from table/model hasMany/hasOne)
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
 }

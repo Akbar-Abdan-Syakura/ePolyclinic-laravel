@@ -42,14 +42,14 @@
                         </a>
                     </li>
                     {{-- @endcan --}}
-                    {{-- @can('user_access') --}}
+                    @can('user_access')
                     <li
                         class="{{ request()->is('backsite/user') || request()->is('backsite/user/*') || request()->is('backsite/*/user') || request()->is('backsite/*/user/*') ? 'active' : '' }} ">
                         <a class="menu-item" href="{{ route('backsite.user.index') }}">
                             <i></i><span>User</span>
                         </a>
                     </li>
-                    {{-- @endcan --}}
+                    @endcan
                 </ul>
             </li>
             {{-- @endcan --}}

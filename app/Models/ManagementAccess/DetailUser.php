@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 // use model: for relation
-use App\Models\MasterData\TypeUser;
 use App\Models\User;
+use App\Models\MasterData\TypeUser;
 
 class DetailUser extends Model
 {
@@ -45,13 +45,13 @@ class DetailUser extends Model
     public function type_user()
     {
         // 3 parameter (path model, field foreign key, field primary key from table/model hasMany/hasOne)
-        return $this->belongsTo(TypeUser::class, 'type_user_id', 'id');
+        return $this->belongsTo('App\Models\MasterData\TypeUser', 'type_user_id', 'id');
     }
 
     // one to many
     public function user()
     {
         // 3 parameter (path model, field foreign key, field primary key from table/model hasMany/hasOne)
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
 }

@@ -37,6 +37,6 @@ class Poli extends Model
     public function doctor()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasMany(Doctor::class, 'poli_id');
+        return $this->hasMany('App\Models\Operational\Doctor', 'poli_id');
     }
 }

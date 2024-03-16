@@ -2,25 +2,26 @@
 
 namespace App\Http\Controllers\Backsite;
 
-use App\Http\Controllers\Controller;
 
 // use library here
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\DB;
 
 // use everything here
-use Gate;
 use Auth;
+use Gate;
+
 
 // use model here
 use App\Models\User;
+use App\Models\MasterData\Poli;
+use App\Models\MasterData\ConfigPayment;
+use App\Models\MasterData\Consultation;
 use App\Models\Operational\Appointment;
 use App\Models\Operational\Transaction;
 use App\Models\Operational\Doctor;
-use App\Models\MasterData\Poli;
-use App\Models\MasterData\Consultation;
-use App\Models\MasterData\ConfigPayment;
 
 class ClinicPatientController extends Controller
 {

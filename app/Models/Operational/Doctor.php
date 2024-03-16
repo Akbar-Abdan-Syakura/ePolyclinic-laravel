@@ -42,19 +42,19 @@ class Doctor extends Model
     public function poli()
     {
         // 3 parameter (path model, field foreign key, field primary key from table/model hasMany/hasOne)
-        return $this->belongsTo(Poli::class, 'poli_id', 'id');
+        return $this->belongsTo('App\Models\MasterData\Poli', 'poli_id', 'id');
     }
 
     // one to many
     public function appointment()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasMany(Appointment::class, 'doctor_id');
+        return $this->hasMany('App\Models\Operational\Appointment', 'doctor_id');
     }
 
     public function user()
     {
         // 3 parameter (path model, field foreign key, field primary key from table/model hasMany/hasOne)
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
 }

@@ -36,6 +36,6 @@ class TypeUser extends Model
     public function detail_user()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasMany(DetailUser::class, 'type_user_id');
+        return $this->hasMany('App\Models\ManagementAccess\DetailUser', 'type_user_id');
     }
 }

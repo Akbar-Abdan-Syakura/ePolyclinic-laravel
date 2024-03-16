@@ -27,6 +27,14 @@ class UserSeeder extends Seeder
                 'created_at'     => date('Y-m-d H:i:s'),
                 'updated_at'     => date('Y-m-d H:i:s'),
             ],
+            [
+                'name'           => 'Dummy No Roles',
+                'email'          => 'dummy@mail.com',
+                'password'       => Hash::make('adminadmin'),
+                'remember_token' => null,
+                'created_at'     => date('Y-m-d H:i:s'),
+                'updated_at'     => date('Y-m-d H:i:s'),
+            ],
         ];
 
         User::insert($user);
