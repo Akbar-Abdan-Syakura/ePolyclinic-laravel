@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
 
 // use everything here
 use Auth;
@@ -44,7 +45,7 @@ class ClinicPatientController extends Controller
     {
         abort_if(Gate::denies('clinic_patient_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $clinic_patient = User::whereHas('detail_user', function ($query) {
+        $clinic_patient = User::whereHas('detail_user', function (Builder $query) {
             return $query->where('type_user_id', 3); // only load user type patient or id 3 in type-user table
         })->orderBy('created_at', 'desc')->get();
 

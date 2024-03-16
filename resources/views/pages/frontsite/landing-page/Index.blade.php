@@ -71,6 +71,7 @@
                     </div>
                     <!-- Text -->
 
+                    @guest
                     <!-- CTA Button -->
                     <div class="grid lg:flex flex-wrap mt-20 gap-5">
                         <a href="{{ route('register') }}"
@@ -82,7 +83,21 @@
                             Story
                         </a>
                     </div>
+                    @endguest
+
+                    @auth
                     <!-- CTA Button -->
+                    <div class="grid lg:flex flex-wrap mt-20 gap-5">
+                        <a href="{{ route('appointment.index') }}"
+                            class="text-white text-lg font-medium text-center bg-[#DA1B4F] rounded-full px-12 py-3">
+                            Book Now
+                        </a>
+                        <a href="#"
+                            class="text-[#1E2B4F] text-lg font-medium text-center bg-[#F2F6FE] rounded-full px-16 py-3">
+                            Story
+                        </a>
+                    </div>
+                    @endauth
 
                 </div>
             </div>
