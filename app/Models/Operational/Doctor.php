@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 // use model class that have relation with this model
 use App\Models\MasterData\Poli;
 use App\Models\Operational\Appointment;
+use App\Models\User;
 
 class Doctor extends Model
 {
@@ -49,5 +50,11 @@ class Doctor extends Model
     {
         // 2 parameter (path model, field foreign key)
         return $this->hasMany(Appointment::class, 'doctor_id');
+    }
+
+    public function user()
+    {
+        // 3 parameter (path model, field foreign key, field primary key from table/model hasMany/hasOne)
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

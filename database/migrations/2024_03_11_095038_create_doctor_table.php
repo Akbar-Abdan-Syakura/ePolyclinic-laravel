@@ -15,8 +15,8 @@ class CreateDoctorTable extends Migration
     {
         Schema::create('doctor', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('poli_id')->nullable()
-                ->index('fk_doctor_to_poli');
+            $table->foreignId('poli_id')->nullable()->index('fk_doctor_to_poli');
+            $table->foreignId('user_id')->nullable()->index('fk_doctor_to_users');
             $table->string('name');
             $table->string('fee');
             $table->longText('photo')->nullable();

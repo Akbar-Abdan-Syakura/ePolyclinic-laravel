@@ -17,6 +17,9 @@ class AddForeignKeysToDoctorTable extends Migration
             $table->foreign('poli_id', 'fk_doctor_to_poli')
                 ->references('id')->on('poli')
                 ->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('user_id', 'fk_doctor_to_users')
+                ->references('id')->on('users')
+                ->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 

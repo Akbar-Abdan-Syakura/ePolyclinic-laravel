@@ -24,7 +24,7 @@ class RoleSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'title'      => 'Operator', // 2
+                'title'      => 'Admin', // 2
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],

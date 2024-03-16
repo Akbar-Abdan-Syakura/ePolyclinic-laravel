@@ -17,6 +17,7 @@ use App\Models\ManagementAccess\DetailUser;
 use App\Models\ManagementAccess\Role;
 use App\Models\ManagementAccess\RoleUser;
 use App\Models\Operational\Appointment;
+use App\Models\Operational\Doctor;
 
 class User extends Authenticatable
 {
@@ -101,5 +102,10 @@ class User extends Authenticatable
     {
         // 2 parameter (path model, field foreign key)
         return $this->hasMany(RoleUser::class, 'user_id');
+    }
+
+    public function doctor()
+    {
+        return $this->hasOne(Doctor::class, 'user_id');
     }
 }

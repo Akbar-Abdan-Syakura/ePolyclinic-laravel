@@ -29,9 +29,9 @@ class UpdateDoctorRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'user_id' => [
-            //     'required', 'integer',
-            // ],
+            'user_id' => [
+                'required', 'integer',
+            ],
             'poli_id' => [
                 'required', 'integer',
             ],
