@@ -1,6 +1,6 @@
 <!-- BEGIN: Header-->
 <nav
-    class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light bg-info navbar-shadow">
+    class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light bg-gradient-y-blue navbar-shadow">
     <div class="navbar-wrapper">
 
         <div class="navbar-header">

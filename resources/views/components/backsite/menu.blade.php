@@ -40,7 +40,7 @@
                     <li
                         class="{{ request()->is('backsite/type_user') || request()->is('backsite/type_user/*') || request()->is('backsite/*/type_user') || request()->is('backsite/*/type_user/*') ? 'active' : '' }} ">
                         <a class="menu-item" href="{{ route('backsite.type_user.index') }}">
-                            <i></i><span>Type User</span>
+                            <i></i><span>User Type</span>
                         </a>
                     </li>
                     {{-- @endcan --}}

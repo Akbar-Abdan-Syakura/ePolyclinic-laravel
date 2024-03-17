@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Poli;
 
 use App\Models\MasterData\Poli;
-// use Gate;
+use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 

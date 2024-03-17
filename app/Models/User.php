@@ -80,32 +80,32 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany('App\Models\ManagementAccess\Role');
     }
 
     // one to many
     public function appointment()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasMany(Appointment::class, 'user_id');
+        return $this->hasMany('App\Models\Operational\Appointment', 'user_id');
     }
 
     // one to one
     public function detail_user()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasOne(DetailUser::class, 'user_id');
+        return $this->hasOne('App\Models\ManagementAccess\DetailUser', 'user_id');
     }
 
     // one to many
     public function role_user()
     {
         // 2 parameter (path model, field foreign key)
-        return $this->hasMany(RoleUser::class, 'user_id');
+        return $this->hasMany('App\Models\ManagementAccess\RoleUser', 'user_id');
     }
 
     public function doctor()
     {
-        return $this->hasOne(Doctor::class, 'user_id');
+        return $this->hasOne('App\Models\Operational\Doctor', 'user_id');
     }
 }
