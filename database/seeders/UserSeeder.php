@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
                 'updated_at'     => date('Y-m-d H:i:s'),
             ],
             [
-                'name'           => 'Dummy No Roles',
+                'name'           => 'Dummy',
                 'email'          => 'dummy@mail.com',
                 'password'       => Hash::make('adminadmin'),
                 'remember_token' => null,

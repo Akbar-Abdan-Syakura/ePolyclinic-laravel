@@ -31,6 +31,19 @@ class DetailUserSeeder extends Seeder
                 'created_at'     => date('Y-m-d H:i:s'),
                 'updated_at'     => date('Y-m-d H:i:s'),
             ],
+            [
+                'user_id'        => 2,
+                'type_user_id'   => 2,
+                'nik'            => NULL,
+                'bpjs'           => NULL,
+                'contact'        => NULL,
+                'address'        => NULL,
+                'photo'          => NULL,
+                'gender'         => NULL,
+                'age'            => NULL,
+                'created_at'     => date('Y-m-d H:i:s'),
+                'updated_at'     => date('Y-m-d H:i:s'),
+            ],
         ];
 
         DetailUser::insert($detail_user);

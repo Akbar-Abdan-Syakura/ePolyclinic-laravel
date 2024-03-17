@@ -29,10 +29,10 @@ class StoreDoctorRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => [
+            'poli_id' => [
                 'required', 'integer',
             ],
-            'poli_id' => [
+            'user_id' => [
                 'required', 'integer',
             ],
             'name' => [

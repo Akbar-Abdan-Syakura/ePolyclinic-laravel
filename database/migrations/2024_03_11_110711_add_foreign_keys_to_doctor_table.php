@@ -32,6 +32,7 @@ class AddForeignKeysToDoctorTable extends Migration
     {
         Schema::table('doctor', function (Blueprint $table) {
             $table->dropForeign('fk_doctor_to_poli');
+            $table->dropForeign('fk_doctor_to_users');
         });
     }
 }

@@ -166,8 +166,7 @@
 
                                                     <p class="text-muted"><small class="text-danger">Hanya dapat
                                                             mengunggah 1 file</small><small> dan yang dapat digunakan
-                                                            JPEG, SVG, PNG & Maksimal ukuran file hanya 10
-                                                            MegaBytes</small></p>
+                                                            JPEG, SVG, PNG dengan maksimal ukuran file 10 MB</small></p>
 
                                                     @if($errors->has('photo'))
                                                     <p style="font-style: bold; color: red;">{{ $errors->first('photo')

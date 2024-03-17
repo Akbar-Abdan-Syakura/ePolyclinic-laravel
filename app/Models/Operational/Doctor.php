@@ -29,6 +29,7 @@ class Doctor extends Model
 
     //declare fillable
     protected $fillable = [
+        'user_id',
         'poli_id',
         'name',
         'fee',

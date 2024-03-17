@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 // use library here
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 
@@ -51,7 +53,7 @@ class DoctorController extends Controller
         $doctor = Doctor::orderBy('created_at', 'desc')->get();
         // use select2 = asc from a to z
         $poli = Poli::orderBy('name', 'asc')->get();
-        $user = User::whereHas('detail_user', function (Builder $query) {
+        $user = User::whereHas('detail_user', function ($query) {
             $query->where('type_user_id', 2);
         })->orderBy('name', 'asc')->get();
 
@@ -131,7 +133,7 @@ class DoctorController extends Controller
 
         // use select2 = asc from a to z
         $poli = Poli::orderBy('name', 'asc')->get();
-        $user = User::whereHas('detail_user', function (Builder $query) {
+        $user = User::whereHas('detail_user', function ($query) {
             $query->where('type_user_id', 2);
         })->orderBy('name', 'asc')->get();
 
@@ -196,9 +198,10 @@ class DoctorController extends Controller
         // first checking old file to delete from storage
         $get_item = $doctor['photo'];
 
-        $data = 'storage/' . $get_item;
-        if (File::exists($data)) {
-            File::delete($data);
+        // delete old photo from storage
+        $data_old = 'storage/' . $get_item;
+        if (File::exists($data_old)) {
+            File::delete($data_old);
         } else {
             File::delete('storage/app/public/' . $get_item);
         }
