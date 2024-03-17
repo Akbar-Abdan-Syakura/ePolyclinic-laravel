@@ -86,11 +86,11 @@ class UserController extends Controller
         // sync role by users select
         $user->role()->sync($request->input('role', []));
 
-        // // save to detail user , to set type user
-        // $detail_user = new DetailUser;
-        // $detail_user->user_id = $user['id'];
-        // $detail_user->type_user_id = $request['type_user_id'];
-        // $detail_user->save();
+        // save to detail user , to set type user
+        $detail_user = new DetailUser;
+        $detail_user->user_id = $user['id'];
+        $detail_user->type_user_id = $request['type_user_id'];
+        $detail_user->save();
 
         alert()->success('Success Message', 'Successfully added new user');
         return redirect()->route('backsite.user.index');
@@ -146,10 +146,10 @@ class UserController extends Controller
         // update roles
         $user->role()->sync($request->input('role', []));
 
-        // // save to detail user , to set type user
-        // $detail_user = DetailUser::find($user['id']);
-        // $detail_user->type_user_id = $request['type_user_id'];
-        // $detail_user->save();
+        // save to detail user , to set type user
+        $detail_user = $user->detail_user;
+        $detail_user->type_user_id = $request['type_user_id'];
+        $detail_user->save();
 
         alert()->success('Success Message', 'Successfully updated user');
         return redirect()->route('backsite.user.index');

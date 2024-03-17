@@ -45,7 +45,7 @@ class ClinicPatientController extends Controller
     {
         abort_if(Gate::denies('clinic_patient_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $clinic_patient = User::whereHas('detail_user', function (Builder $query) {
+        $clinic_patient = User::whereHas('detail_user', function ($query) {
             return $query->where('type_user_id', 3); // only load user type patient or id 3 in type-user table
         })->orderBy('created_at', 'desc')->get();
 

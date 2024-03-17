@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers\Backsite;
 
-use App\Http\Controllers\Controller;
-
-// use library here
-use Illuminate\Support\Facades\Storage;
-use Symfony\Component\HttpFoundation\Response;
-
-// use request here
-use App\Http\Requests\ConfigPayment\UpdateConfigPaymentRequest;
-
-// simlple use here
-use Gate;
 use Auth;
 
-// model here
+use Gate;
+use Illuminate\Http\Request;
+
+use App\Http\Controllers\Controller;
+
+use Illuminate\Support\Facades\Storage;
 use App\Models\MasterData\ConfigPayment;
+
+// model here
+use Symfony\Component\HttpFoundation\Response;
+use App\Http\Requests\ConfigPayment\UpdateConfigPaymentRequest;
 
 // thirdparty package
 
@@ -85,11 +83,11 @@ class ConfigPaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(ConfigPayment $cfg_payment)
+    public function edit(ConfigPayment $config_payment)
     {
-        abort_if(Gate::denies('cfg_payment_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('config_payment_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('pages.backsite.master-data.config-payment.edit', compact('cfg_payment'));
+        return view('pages.backsite.master-data.config-payment.edit', compact('config_payment'));
     }
 
     /**
@@ -99,16 +97,21 @@ class ConfigPaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateConfigPaymentRequest $request, ConfigPayment $cfg_payment)
+    public function update(UpdateConfigPaymentRequest $request, ConfigPayment $config_payment)
     {
         // get all request from frontsite
         $data = $request->all();
 
+        // re format before push to table
+        $data['fee'] = str_replace(',', '', $data['fee']);
+        $data['fee'] = str_replace('IDR ', '', $data['fee']);
+        $data['ppn'] = str_replace(',', '', $data['ppn']);
+
         // update to database
-        $cfg_payment->update($data);
+        $config_payment->update($data);
 
         alert()->success('Success Message', 'Successfully updated payment policies');
-        return redirect()->route('backsite.cfg-payment.update');
+        return redirect()->route('backsite.config_payment.update');
     }
 
     /**
