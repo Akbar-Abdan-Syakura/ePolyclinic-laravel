@@ -106,8 +106,11 @@
                                 {{Auth::user()->name }}</span><span class="avatar avatar-online"><img
                                     src="{{ asset('/assets/backsite/app-assets/images/portrait/small/avatar-s-19.png') }}"
                                     alt="avatar"><i></i></span></a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
-                                href="user-profile.html"><i class="ft-user"></i> Edit Profile</a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="user-profile.html">
+                                <i class="ft-user"></i> Edit Profile</a>
+                            <a class="dropdown-item" href="{{ route('index') }}">
+                                <i class="ft-clipboard"></i> Landing Page</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

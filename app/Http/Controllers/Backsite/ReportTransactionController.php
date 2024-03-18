@@ -123,4 +123,6 @@ class ReportTransactionController extends Controller
     {
         return abort(404);
     }
+
+    // custom function
 }

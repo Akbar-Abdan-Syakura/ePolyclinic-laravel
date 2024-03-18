@@ -30,7 +30,7 @@ class LandingController extends Controller
     public function index()
     {
         $poli = Poli::inRandomOrder()->limit(5)->get();
-        $doctor = Doctor::orderBy('created_at', 'desc')->limit(4)->get();
+        $doctor = Doctor::inRandomOrder()->limit(4)->get();
 
         return view('pages.frontsite.landing-page.index', compact('poli', 'doctor'));
     }

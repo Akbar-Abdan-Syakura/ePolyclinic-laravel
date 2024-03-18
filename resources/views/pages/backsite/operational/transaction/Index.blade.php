@@ -39,6 +39,15 @@
                     </div>
                 </div>
             </div>
+            <div class="content-header-right col-md-6 col-12">
+                <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
+                    <button class="btn btn-info round dropdown-toggle dropdown-menu-right box-shadow-2 px-2 mb-1"
+                        id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"><i class="ft-printer icon-left"></i> Export</button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1"><a class="dropdown-item"
+                            href="card-bootstrap.html">Excel</a></div>
+                </div>
+            </div>
         </div>
 
         {{-- table card --}}
