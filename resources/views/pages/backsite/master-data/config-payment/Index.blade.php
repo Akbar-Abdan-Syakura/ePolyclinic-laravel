@@ -83,8 +83,7 @@
                                                     <td>{{ 'IDR '.number_format($config_payment_item->fee) ?? '' }}</td>
                                                     <td>{{ number_format($config_payment_item->ppn).'%' ?? '' }}</td>
                                                     {{-- <td class="text-center">
-
-                                                        {{-- <div class="btn-group mr-1 mb-1">
+                                                        <div class="btn-group mr-1 mb-1">
                                                             <button type="button"
                                                                 class="btn btn-info btn-sm dropdown-toggle"
                                                                 data-toggle="dropdown" aria-haspopup="true"

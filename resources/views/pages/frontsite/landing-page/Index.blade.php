@@ -3,6 +3,8 @@
 @section('title', 'Home')
 
 @section('content')
+
+<!-- Content -->
 <main class="min-h-screen">
 
     <!-- Hero -->
@@ -88,7 +90,7 @@
                     @auth
                     <!-- CTA Button -->
                     <div class="grid lg:flex flex-wrap mt-20 gap-5">
-                        <a href="{{ route('appointment.index') }}"
+                        <a href="#doctors"
                             class="text-white text-lg font-medium text-center bg-[#DA1B4F] rounded-full px-12 py-3">
                             Book Now
                         </a>
@@ -112,54 +114,38 @@
             <p class="text-[#A7B0B5] mt-2">Quick and Easy Way to Gain Your First Experience</p>
 
             <!-- Card -->
-            <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mt-10">
+            <div class="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mt-10">
+
+                @forelse ($poli as $key => $poli_item)
                 <a href="#"
                     class="bg-white py-6 px-5 rounded-2xl transition hover:ring-offset-2 hover:ring-2 hover:ring-[#DA1B4F]">
-                    <h5 class="text-[#1E2B4F] text-lg font-semibold">Poli Umum</h5>
+                    <h5 class="text-[#1E2B4F] text-lg font-semibold">{{ $poli_item->name ?? '' }}</h5>
                     <p class="text-[#AFAEC3] mt-1">143 doctors</p>
                 </a>
+                <!-- End Card -->
+                @empty
+                {{-- empty --}}
+                @endforelse
 
-                <a href="#"
-                    class="bg-white py-6 px-5 rounded-2xl transition hover:ring-offset-2 hover:ring-2 hover:ring-[#DA1B4F]">
-                    <h5 class="text-[#1E2B4F] text-lg font-semibold">Poli Gigi</h5>
-                    <p class="text-[#AFAEC3] mt-1">22 doctors</p>
-                </a>
-
-                <a href="#"
-                    class="bg-white py-6 px-5 rounded-2xl transition hover:ring-offset-2 hover:ring-2 hover:ring-[#DA1B4F]">
-                    <h5 class="text-[#1E2B4F] text-lg font-semibold">Poli Mata</h5>
-                    <p class="text-[#AFAEC3] mt-1">74 doctors</p>
-                </a>
-
-                <a href="#"
-                    class="bg-white py-6 px-5 rounded-2xl transition hover:ring-offset-2 hover:ring-2 hover:ring-[#DA1B4F]">
-                    <h5 class="text-[#1E2B4F] text-lg font-semibold">Poli Gizi</h5>
-                    <p class="text-[#AFAEC3] mt-1">53 doctors</p>
-                </a>
-
-                <a href="#"
-                    class="bg-white py-6 px-5 rounded-2xl transition hover:ring-offset-2 hover:ring-2 hover:ring-[#DA1B4F]">
-                    <h5 class="text-[#1E2B4F] text-lg font-semibold">Poli Penyakit Dalam</h5>
-                    <p class="text-[#AFAEC3] mt-1">794 doctors</p>
-                </a>
             </div>
-            <!-- End Card -->
-        </div>
     </section>
     <!-- End Popular Categories -->
 
     <!-- Best Doctors -->
-    <section class="mt-4 lg:mt-16">
+    <section class="mt-4 lg:mt-16" id="doctors">
         <div class="mx-auto max-w-7xl px-4 lg:px-14 py-14">
             <h3 class="text-[#1E2B4F] text-2xl font-semibold">Meet Our Doctors</h3>
             <p class="text-[#A7B0B5] mt-2">You will find the best doctor for your needs.</p>
 
             <!-- Card -->
             <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 lg:gap-10 mt-10">
-                <a href="{{ route('appointment.index') }}" class="group">
+
+                @forelse ($doctor as $key => $doctor_item)
+                <a href="{{ route('appointment.doctor', $doctor_item->id) }}" class="group">
                     <div class="relative z-10 w-full h-[350px] rounded-2xl overflow-hidden">
-                        <img src="{{ asset('/assets/frontsite/images/doctor-1.png') }}"
-                            class="w-full h-full bg-center bg-no-repeat object-cover object-center" alt="Doctor 1">
+                        <img src="{{ url(Storage::url($doctor_item->photo)) }}"
+                            class="w-full h-full bg-center bg-no-repeat object-cover object-center"
+                            alt="{{ $doctor_item->name ?? '' }}">
                         <div
                             class="opacity-0 group-hover:opacity-100 transition-all ease-in absolute inset-0 bg-[#DA1B4F] bg-opacity-70 flex justify-center items-center">
                             <span class="text-[#DA1B4F] font-medium bg-white rounded-full px-8 py-3">Book Now</span>
@@ -167,8 +153,8 @@
                     </div>
                     <div class="flex items-center justify-between mt-5">
                         <div>
-                            <div class="text-[#1E2B4F] text-lg font-semibold">Dr. Galih Pratama</div>
-                            <div class="text-[#AFAEC3] mt-1">Poli Umum</div>
+                            <div class="text-[#1E2B4F] text-lg font-semibold">{{ $doctor_item->name ?? '' }}</div>
+                            <div class="text-[#AFAEC3] mt-1">{{ $doctor_item->poli->name ?? '' }}</div>
                         </div>
                         <div class="flex items-center space-x-2">
                             <img src="{{ asset('/assets/frontsite/images/star.svg') }}" alt="Star">
@@ -176,69 +162,10 @@
                         </div>
                     </div>
                 </a>
+                @empty
+                {{-- empty --}}
+                @endforelse
 
-                <a href="{{ route('appointment.index') }}" class="group">
-                    <div class="relative z-10 w-full h-[350px] rounded-2xl overflow-hidden">
-                        <img src="{{ asset('/assets/frontsite/images/doctor-2.png') }}"
-                            class="w-full h-full bg-center bg-no-repeat object-cover object-center" alt="Doctor 2">
-                        <div
-                            class="opacity-0 group-hover:opacity-100 transition-all ease-in absolute inset-0 bg-[#DA1B4F] bg-opacity-70 flex justify-center items-center">
-                            <span class="text-[#DA1B4F] font-medium bg-white rounded-full px-8 py-3">Book Now</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between mt-5">
-                        <div>
-                            <div class="text-[#1E2B4F] text-lg font-semibold">Dr. Anne Hulli</div>
-                            <div class="text-[#AFAEC3] mt-1">Poli Gizi</div>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <img src="{{ asset('/assets/frontsite/images/star.svg') }}" alt="Star">
-                            <span class="block text-[#1E2B4F] font-medium">4.8</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="{{ route('appointment.index') }}" class="group">
-                    <div class="relative z-10 w-full h-[350px] rounded-2xl overflow-hidden">
-                        <img src="{{ asset('/assets/frontsite/images/doctor-3.png') }}"
-                            class="w-full h-full bg-center bg-no-repeat object-cover object-center" alt="Doctor 1">
-                        <div
-                            class="opacity-0 group-hover:opacity-100 transition-all ease-in absolute inset-0 bg-[#DA1B4F] bg-opacity-70 flex justify-center items-center">
-                            <span class="text-[#DA1B4F] font-medium bg-white rounded-full px-8 py-3">Book Now</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between mt-5">
-                        <div>
-                            <div class="text-[#1E2B4F] text-lg font-semibold">Dr. Masayoshi</div>
-                            <div class="text-[#AFAEC3] mt-1">Poli Saraf</div>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <img src="{{ asset('/assets/frontsite/images/star.svg') }}" alt="Star">
-                            <span class="block text-[#1E2B4F] font-medium">4.5</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="{{ route('appointment.index') }}" class="group">
-                    <div class="relative z-10 w-full h-[350px] rounded-2xl overflow-hidden">
-                        <img src="{{ asset('/assets/frontsite/images/doctor-4.png') }}"
-                            class="w-full h-full bg-center bg-no-repeat object-cover object-center" alt="Doctor 1">
-                        <div
-                            class="opacity-0 group-hover:opacity-100 transition-all ease-in absolute inset-0 bg-[#DA1B4F] bg-opacity-70 flex justify-center items-center">
-                            <span class="text-[#DA1B4F] font-medium bg-white rounded-full px-8 py-3">Book Now</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between mt-5">
-                        <div>
-                            <div class="text-[#1E2B4F] text-lg font-semibold">Dr. Shin Tai</div>
-                            <div class="text-[#AFAEC3] mt-1">Poli Dermatologi</div>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <img src="{{ asset('/assets/frontsite/images/star.svg') }}" alt="Star">
-                            <span class="block text-[#1E2B4F] font-medium">4.5</span>
-                        </div>
-                    </div>
-                </a>
             </div>
             <!-- End Card -->
         </div>

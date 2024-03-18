@@ -90,7 +90,7 @@
                                 <div class="text-base font-medium text-[#1E2B4F]">Hi, {{ Auth::user()->name }}</div>
                                 {{-- this section must read from type user --}}
                                 <div class="text-sm text-[#AFAEC3]">
-                                    Pasien
+                                    {{ Auth::user()->detail_user->type_user->name }}
                                 </div>
                             </div>
                             <img class="h-12 w-12 rounded-full ring-1 ring-offset-4 ring-[#DA1B4F]"

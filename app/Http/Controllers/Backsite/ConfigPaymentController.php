@@ -111,7 +111,7 @@ class ConfigPaymentController extends Controller
         $config_payment->update($data);
 
         alert()->success('Success Message', 'Successfully updated payment policies');
-        return redirect()->route('backsite.config_payment.update');
+        return redirect()->route('backsite.config_payment.update', $config_payment->id);
     }
 
     /**

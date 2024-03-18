@@ -15,9 +15,8 @@
                 <br />
                 mendapatkan pelayanan yang terbaik
             </p>
-            <a href="{{ route('backsite.dashboard.index') }}"
-                class="inline-block mt-10 bg-[#DA1B4F] text-white rounded-full px-14 py-3">
-                My Dashboard
+            <a href="{{ route('index') }}" class="inline-block mt-10 bg-[#DA1B4F] text-white rounded-full px-14 py-3">
+                Home
             </a>
         </div>
     </div>

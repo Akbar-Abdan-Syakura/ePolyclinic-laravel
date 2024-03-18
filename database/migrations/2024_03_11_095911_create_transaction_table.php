@@ -17,6 +17,7 @@ class CreateTransactionTable extends Migration
             $table->id();
             $table->foreignId('appointment_id')->nullable()
                 ->index('fk_transaction_to_appointment');
+            $table->string('transaction_code');
             $table->string('fee_doctor')->nullable();
             $table->string('fee_poli')->nullable();
             $table->string('fee_clinic')->nullable();

@@ -28,6 +28,7 @@ class Transaction extends Model
     //declare fillable
     protected $fillable = [
         'appointment_id',
+        'transaction_code',
         'fee_doctor',
         'fee_polyclinic',
         'fee_clinic',

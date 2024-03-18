@@ -70,6 +70,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Date</th>
+                                                    <th>Transaction Code</th>
                                                     <th>Doctor</th>
                                                     <th>Patient</th>
                                                     <th>Fee Doctor</th>
@@ -85,6 +86,7 @@
                                                 <tr data-entry-id="{{ $transaction_item->id }}">
                                                     <td>{{ isset($transaction_item->created_at) ? date("d/m/Y
                                                         H:i:s",strtotime($transaction_item->created_at)) : '' }}</td>
+                                                    <td>{{ $transaction_item->transaction_code ?? '' }}</td>
                                                     <td>{{ $transaction_item->appointment->doctor->name ?? '' }}</td>
                                                     <td>{{ $transaction_item->appointment->user->name ?? '' }}</td>
                                                     <td>{{ 'IDR '.number_format($transaction_item->fee_doctor) ?? '' }}
@@ -105,6 +107,7 @@
                                             <tfoot>
                                                 <tr>
                                                     <th>Date</th>
+                                                    <th>Transaction Code</th>
                                                     <th>Doctor</th>
                                                     <th>Patient</th>
                                                     <th>Fee Doctor</th>

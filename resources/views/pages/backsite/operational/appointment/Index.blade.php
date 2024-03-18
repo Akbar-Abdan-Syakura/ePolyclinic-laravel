@@ -102,8 +102,8 @@
                                                         date("H:i:s",strtotime($appointment_item->time)) : '' }}</td>
                                                     <td>
                                                         @if($appointment_item->status == 1)
-                                                        <span class="badge badge-success">{{ 'Payment Completed'
-                                                            }}</span>
+                                                        <span class="badge badge-success">{{ 'Payment
+                                                            Completed'}}</span>
                                                         @elseif($appointment_item->status == 2)
                                                         <span class="badge badge-warning">{{ 'Waiting Payment' }}</span>
                                                         @else
