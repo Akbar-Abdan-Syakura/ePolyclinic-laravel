@@ -20,6 +20,18 @@ class Appointment extends Model
     // declare table
     public $table = 'appointment';
 
+    // declare headings for export
+    const HEADINGS = [
+        'id'                => 'ID',
+        'doctor_id'         => 'Doctor',
+        'user_id'           => 'Patient',
+        'consultation_id'   => 'Consultation',
+        'level'             => 'Level',
+        'date'              => 'Appointment Date',
+        'time'              => 'Appointment Time',
+        'status'            => 'Status',
+    ];
+
     // this field must type date yyyy-mm-dd hh:mm:ss
     protected $date = [
         'created_at',
@@ -39,6 +51,12 @@ class Appointment extends Model
         'deleted_at',
         'created_at',
         'updated_at',
+    ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     // one to many

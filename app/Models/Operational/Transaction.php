@@ -30,14 +30,20 @@ class Transaction extends Model
         'appointment_id',
         'transaction_code',
         'fee_doctor',
-        'fee_polyclinic',
+        'fee_poli',
         'fee_clinic',
         'sub_total',
         'ppn',
         'total',
-        'deleted_at',
         'created_at',
         'updated_at',
+        'deleted_at',
+    ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     // one to one

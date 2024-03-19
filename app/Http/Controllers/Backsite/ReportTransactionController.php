@@ -13,6 +13,7 @@ use Gate;
 use Auth;
 
 // use model here
+use App\Exports\TransactionExport;
 use App\Models\Operational\Transaction;
 use App\Models\Operational\Appointment;
 use App\Models\Operational\Doctor;
@@ -23,6 +24,8 @@ use App\Models\MasterData\Poli;
 use App\Models\MasterData\ConfigPayment;
 
 // thirdparty package
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class ReportTransactionController extends Controller
 {
@@ -124,5 +127,11 @@ class ReportTransactionController extends Controller
         return abort(404);
     }
 
+
     // custom function
+    public function export()
+    {
+        $transaction = Transaction::all();
+        return Excel::download(new TransactionExport($transaction), 'transaction.xlsx');
+    }
 }

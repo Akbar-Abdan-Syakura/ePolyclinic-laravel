@@ -13,6 +13,7 @@ use Gate;
 use Auth;
 
 // use model here
+use App\Exports\AppointmentExport;
 use App\Models\Operational\Appointment;
 use App\Models\Operational\Doctor;
 use App\Models\Operational\Transaction;
@@ -20,6 +21,7 @@ use App\Models\User;
 use App\Models\MasterData\Consultation;
 
 // thirdparty package
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class ReportAppointmentController extends Controller
@@ -120,5 +122,12 @@ class ReportAppointmentController extends Controller
     public function destroy($id)
     {
         return abort(404);
+    }
+
+    // custom function
+    public function export()
+    {
+        $appointment = Appointment::all();
+        return Excel::download(new AppointmentExport($appointment), 'appointment.xlsx');
     }
 }

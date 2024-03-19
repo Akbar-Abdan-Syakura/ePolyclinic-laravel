@@ -76,9 +76,15 @@ Route::group(
 
         // Operational route route
         Route::resource('doctor', DoctorController::class);
-        Route::resource('appointment', ReportAppointmentController::class);
-        Route::resource('transaction', ReportTransactionController::class);
         Route::resource('clinic_patient', ClinicPatientController::class);
+
+        //appointment route
+        Route::get('appointment/export', [ReportAppointmentController::class, 'export'])->name('appointment.export');
+        Route::resource('appointment', ReportAppointmentController::class);
+
+        // transaction route
+        Route::get('transaction/export', [ReportTransactionController::class, 'export'])->name('transaction.export');
+        Route::resource('transaction', ReportTransactionController::class);
     }
 );
 

@@ -165,7 +165,7 @@
                     Payment Information
                 </h5>
                 <div class="flex items-center justify-between mt-5">
-                    <div class="text-[#AFAEC3] font-medium">Biaya konsultasi</div>
+                    <div class="text-[#AFAEC3] font-medium">Biaya pelayanan</div>
                     <div class="text-[#1E2B4F] font-medium">
                         {{ 'IDR '.number_format($appointment->doctor->poli->price) ?? '' }}
                     </div>
